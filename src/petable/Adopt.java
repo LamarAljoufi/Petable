@@ -10,6 +10,7 @@ package petable;
  * @author DELL
  */
 public class Adopt extends javax.swing.JFrame implements Service {
+    
 
     /**
      * Creates new form Adopt
