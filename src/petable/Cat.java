@@ -76,7 +76,6 @@ public class Cat extends javax.swing.JFrame implements Pet {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
         new User().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
