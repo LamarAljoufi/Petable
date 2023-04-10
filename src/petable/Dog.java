@@ -9,12 +9,53 @@ package petable;
  *
  * @author DELL
  */
-public class Dog extends javax.swing.JFrame implements Pet{
+public class Dog extends javax.swing.JFrame implements Pet {
+
+    private String name;
+    private int age;
+    private String gender;
+    private String healthStatus;
+    private boolean isAdopted;
+
+    public void createPet(String name, int age, String gender, String healthStatus, String petType) throws Exception {
+         //implmentation for createPet (When DB is ready)
+    }
+
+    public void updatePet(int petId, String name, int age, String gender, String healthStatus) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.healthStatus = healthStatus;
+    }
+
+    public void deletePet(int petId) {
+        // Implementation for delete pet(When DB is ready)
+    }
+
+    public void adoptPet(int petId) {
+        this.isAdopted = true;
+    }
+
+    public String displayPetDetails(int petId) {
+        return "Name: " + this.name + ", Age: " + this.age + ", Gender: " + this.gender + ", Health status: " + this.healthStatus + ", Adoption status: " + (this.isAdopted ? "Adopted" : "Not adopted");
+    }
 
     /**
      * Creates new form Dog
      */
     public Dog() {
+        initComponents();
+    }
+
+    public Dog(String name, int age, String gender, String healthStatus, boolean isAdopted, String petType) throws Exception {
+        if (!petType.toLowerCase().equals("dog")) {
+            throw new Exception("Invalid pet type for dog");
+        }
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.healthStatus = healthStatus;
+        this.isAdopted = false;
         initComponents();
     }
 

@@ -20,6 +20,7 @@ public class GiveUp extends javax.swing.JFrame implements Service {
     private int petage;
     private String gender;
     private String health;
+     
 
     public GiveUp() {
         initComponents();
@@ -169,32 +170,45 @@ public class GiveUp extends javax.swing.JFrame implements Service {
     }//GEN-LAST:event_HealthyActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-            petname = PetName.getText();
-            petage = Integer.valueOf(PetAge.getText());
-        
 
-        if (GenderF.isSelected()) {
-            gender = "F";
-        } else if (GenderM.isSelected()) {
-            gender = "M";
-        } else {
-            JOptionPane.showMessageDialog(null, "You should select the gender");
-        }
-
-        if (Healthy.isSelected()) {
-            health = "Health";
-        } else if (UnHealthy.isSelected()) {
-            health = "Unhealth";
-        } else {
-            JOptionPane.showMessageDialog(null, "You should select the health condition");
-        }
-
-        if(GenderF.isSelected() || GenderM.isSelected() && Healthy.isSelected() || UnHealthy.isSelected()   ){
-           new User().setVisible(true); 
-        }
+        String errorMessage="";
         
+        petname = PetName.getText();
+        if (petname == null || petname.isEmpty()) {
+            errorMessage += "Please enter the pet's name.";
+            //JOptionPane.showMessageDialog(this,  errorMessage,"Invalid input", JOptionPane.ERROR_MESSAGE);
+
+        }
+        String ageString = PetAge.getText();
+        if (ageString.isEmpty()) {
+
+            errorMessage += "\nPlease enter the pet's age.";
+
+        }
+        try {
+            petage = Integer.parseInt(ageString);
+        } catch (NumberFormatException e) {
+            errorMessage += "\nPlease enter a valid age (an integer).";
+
+        }
+        if (!GenderF.isSelected() && !GenderM.isSelected()) {
+            errorMessage += "\nPlease select the pet's gender.";
+
+        }
+        gender = GenderF.isSelected() ? "Female" : "Male";
+        if (!Healthy.isSelected() && !UnHealthy.isSelected()) {
+            errorMessage += "\nPlease select the pet's health condition.";
+            JOptionPane.showMessageDialog(this, errorMessage, "Invalid input", JOptionPane.ERROR_MESSAGE);
+
+            return;
+        }
+        health = Healthy.isSelected() ? "Healthy" : "Unhealthy";
+
+        // If all fields are valid, do something with the data, e.g. call a method on a service object
+        // service.submit(petname, petage, gender, health);
+        new User().setVisible(true);
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

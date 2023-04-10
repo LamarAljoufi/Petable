@@ -5,10 +5,15 @@
  */
 package petable;
 
-/**
- *
- * @author DELL
- */
 public interface Pet {
-    
+
+    void createPet(String name, int age, String gender, String healthStatus, String petType) throws Exception;
+
+    void updatePet(int petId, String name, int age, String gender, String healthStatus);
+
+    void deletePet(int petId);
+
+    void adoptPet(int petId);
+
+    String displayPetDetails(int petId);
 }

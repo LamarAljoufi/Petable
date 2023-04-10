@@ -5,6 +5,8 @@
  */
 package petable;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DELL
@@ -14,11 +16,10 @@ public class User extends javax.swing.JFrame {
     /**
      * Creates new form User
      */
-    
     private String name;
-     private int age ;
-     private String phoneNo ;
-    
+    private int age;
+    private String phoneNo;
+
     public User() {
         initComponents();
     }
@@ -128,17 +129,47 @@ public class User extends javax.swing.JFrame {
 
     private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_NameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         // TODO add your handling code here:
-        name = Name.getText();
-        age= Integer.valueOf(Age.getText());
-        phoneNo = Phone.getText();
-        
+        String errorMessage = "";
+        String nameText = Name.getText().trim();
+        String ageText = Age.getText().trim();
+        String phoneText = Phone.getText().trim();
+
+        if (nameText.isEmpty()) {
+            errorMessage += "Please enter a name.\n";
+        }
+
+        try {
+            int age = Integer.parseInt(ageText);
+            if (age <= 0) {
+                errorMessage += "Age must be a positive number.\n";
+            }
+        } catch (NumberFormatException e) {
+            errorMessage += "Age must be a number.\n";
+        }
+
+        if (phoneText.isEmpty()) {
+            errorMessage += "Please enter a phone number.\n";
+        } else if (!phoneText.matches("\\d{10}")) {
+            errorMessage += "Phone number must be 10 digits.\n";
+        }
+
+        if (!errorMessage.isEmpty()) {
+            JOptionPane.showMessageDialog(this, errorMessage, "Invalid input", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        name = nameText;
+        age = Integer.parseInt(ageText);
+        phoneNo = phoneText;
+
         new Invoice().setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
