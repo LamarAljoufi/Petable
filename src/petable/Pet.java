@@ -7,7 +7,7 @@ package petable;
 
 public interface Pet {
 
-    void createPet(String name, int age, String gender, String healthStatus, String petType) throws Exception;
+    void createPet() throws Exception;
 
     void updatePet(int petId, String name, int age, String gender, String healthStatus);
 

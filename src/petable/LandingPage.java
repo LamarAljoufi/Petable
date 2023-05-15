@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package petable;
+
 import javax.swing.*;
 
 /**
@@ -11,17 +12,15 @@ import javax.swing.*;
  * @author DELL
  */
 public class LandingPage extends javax.swing.JFrame {
-     private JPanel currentPanel;
-    private JPanel nextPanel;
 
-    
-  
+    private JPanel currentPanel;
+    private JPanel nextPanel;
 
     /**
      * Creates new form LandingPage
      */
     public LandingPage() {
-             currentPanel = new JPanel();
+        currentPanel = new JPanel();
         this.add(currentPanel);
         this.pack();
         this.setVisible(true);
@@ -30,14 +29,13 @@ public class LandingPage extends javax.swing.JFrame {
         int delay = 2000; // milliseconds
         Timer timer = new Timer(delay, e -> {
             // Code to switch to the next panel after delay
-             new Main().setVisible(true);
-            
+            new Main().setVisible(true);
+
         });
         timer.setRepeats(false); // Only run once
         timer.start();
         initComponents();
-        
-        
+
     }
 
     /**
@@ -56,8 +54,7 @@ public class LandingPage extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Desktop\\Univercity\\Level_11\\305\\Petable\\Landing.png")); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(390, 844));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Landing.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

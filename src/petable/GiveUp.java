@@ -5,6 +5,8 @@
  */
 package petable;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +22,7 @@ public class GiveUp extends javax.swing.JFrame implements Service {
     private int petage;
     private String gender;
     private String health;
-     
+    private String species;
 
     public GiveUp() {
         initComponents();
@@ -43,97 +45,129 @@ public class GiveUp extends javax.swing.JFrame implements Service {
         GenderM = new javax.swing.JRadioButton();
         UnHealthy = new javax.swing.JRadioButton();
         Healthy = new javax.swing.JRadioButton();
+        Cat = new javax.swing.JRadioButton();
+        Dog = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        PetName.setBackground(new java.awt.Color(255, 255, 255));
         PetName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PetNameActionPerformed(evt);
             }
         });
+        jPanel1.add(PetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 81, -1));
 
-        GenderF.setText("jRadioButton1");
+        PetAge.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(PetAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 81, -1));
+
+        GenderF.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GenderF.setForeground(new java.awt.Color(255, 255, 255));
+        GenderF.setText("Female");
         GenderF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderFActionPerformed(evt);
             }
         });
+        jPanel1.add(GenderF, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, -1, -1));
 
-        GenderM.setText("jRadioButton2");
+        GenderM.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GenderM.setForeground(new java.awt.Color(255, 255, 255));
+        GenderM.setText("male");
+        jPanel1.add(GenderM, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
 
-        UnHealthy.setText("jRadioButton3");
+        UnHealthy.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        UnHealthy.setForeground(new java.awt.Color(255, 255, 255));
+        UnHealthy.setText("UnHealthy");
         UnHealthy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UnHealthyActionPerformed(evt);
             }
         });
+        jPanel1.add(UnHealthy, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
 
-        Healthy.setText("jRadioButton4");
+        Healthy.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Healthy.setForeground(new java.awt.Color(255, 255, 255));
+        Healthy.setText("Healthy");
         Healthy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HealthyActionPerformed(evt);
             }
         });
+        jPanel1.add(Healthy, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
 
-        jButton1.setText("jButton1");
+        Cat.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Cat.setForeground(new java.awt.Color(255, 255, 255));
+        Cat.setText("Cat");
+        Cat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CatActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
+
+        Dog.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Dog.setForeground(new java.awt.Color(255, 255, 255));
+        Dog.setText("Dog");
+        Dog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DogActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Dog, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, -1, -1));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/next button.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 640, 90, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 8, Short.MAX_VALUE)
-                        .addComponent(Healthy)
-                        .addGap(29, 29, 29)
-                        .addComponent(UnHealthy))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(GenderM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(GenderF)))
-                .addGap(112, 112, 112))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PetName, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                    .addComponent(PetAge))
-                .addGap(120, 120, 120))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(PetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(PetAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GenderF)
-                    .addComponent(GenderM))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UnHealthy)
-                    .addComponent(Healthy))
-                .addGap(71, 71, 71)
-                .addComponent(jButton1)
-                .addContainerGap(352, Short.MAX_VALUE))
-        );
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Choose pet's species");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Pet's name");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Pet's Age");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Choose Pet's Gender :");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Choose helth status");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/GiveUp.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,8 +205,8 @@ public class GiveUp extends javax.swing.JFrame implements Service {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String errorMessage="";
-        
+        String errorMessage = "";
+
         petname = PetName.getText();
         if (petname == null || petname.isEmpty()) {
             errorMessage += "Please enter the pet's name.";
@@ -204,12 +238,46 @@ public class GiveUp extends javax.swing.JFrame implements Service {
         }
         health = Healthy.isSelected() ? "Healthy" : "Unhealthy";
 
+        if (!Cat.isSelected() && !Dog.isSelected()) {
+            errorMessage += "\nPlease select the pet's species";
+            JOptionPane.showMessageDialog(this, errorMessage, "Invalid input", JOptionPane.ERROR_MESSAGE);
+
+            return;
+        }
+        species = Cat.isSelected() ? "Cat" : "Dog";
+        
+        if (species.equalsIgnoreCase("Cat")) {
+            try {
+                Pet Cat = new Cat(petname, petage, gender, health,false, species);
+                Cat.createPet();
+            } catch (Exception ex) {
+                Logger.getLogger(GiveUp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else{
+             try {
+                Pet Dog = new Dog(petname, petage, gender, health,false, species);
+                Dog.createPet();
+            } catch (Exception ex) {
+                Logger.getLogger(GiveUp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+
         // If all fields are valid, do something with the data, e.g. call a method on a service object
         // service.submit(petname, petage, gender, health);
         new User().setVisible(true);
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void DogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DogActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DogActionPerformed
+
+    private void CatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +315,8 @@ public class GiveUp extends javax.swing.JFrame implements Service {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Cat;
+    private javax.swing.JRadioButton Dog;
     private javax.swing.JRadioButton GenderF;
     private javax.swing.JRadioButton GenderM;
     private javax.swing.JRadioButton Healthy;
@@ -254,6 +324,12 @@ public class GiveUp extends javax.swing.JFrame implements Service {
     private javax.swing.JTextField PetName;
     private javax.swing.JRadioButton UnHealthy;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

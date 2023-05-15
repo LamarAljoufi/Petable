@@ -32,51 +32,39 @@ public class Main extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Adopt = new javax.swing.JButton();
         give_up = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(390, 844));
+        jPanel1.setMinimumSize(new java.awt.Dimension(390, 844));
+        jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Adopt.setText("Adopt");
+        Adopt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Adopte button.png"))); // NOI18N
         Adopt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdoptActionPerformed(evt);
             }
         });
+        jPanel1.add(Adopt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 120, 50));
 
-        give_up.setText("Give up");
+        give_up.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Give up button.png"))); // NOI18N
         give_up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 give_upActionPerformed(evt);
             }
         });
+        jPanel1.add(give_up, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 120, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(give_up)
-                    .addComponent(Adopt))
-                .addContainerGap(186, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(364, 364, 364)
-                .addComponent(Adopt)
-                .addGap(49, 49, 49)
-                .addComponent(give_up)
-                .addContainerGap(379, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Main.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,18 +74,17 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AdoptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdoptActionPerformed
-        // TODO add your handling code here:
-        
-        Adopt adopt = new Adopt();
-        adopt.setVisible(true);
-        
-    }//GEN-LAST:event_AdoptActionPerformed
-
     private void give_upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_give_upActionPerformed
         // TODO add your handling code here:
         new GiveUp().setVisible(true);
     }//GEN-LAST:event_give_upActionPerformed
+
+    private void AdoptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdoptActionPerformed
+        // TODO add your handling code here:
+
+        Adopt adopt = new Adopt();
+        adopt.setVisible(true);
+    }//GEN-LAST:event_AdoptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,6 +112,7 @@ public class Main extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -137,6 +125,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adopt;
     private javax.swing.JButton give_up;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
