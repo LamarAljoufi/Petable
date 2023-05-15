@@ -21,7 +21,7 @@ public class GiveUp extends javax.swing.JFrame implements Service {
     private String petname;
     private int petage;
     private String gender;
-    private String health;
+    private boolean health;
     private String species;
 
     public GiveUp() {
@@ -229,14 +229,14 @@ public class GiveUp extends javax.swing.JFrame implements Service {
             errorMessage += "\nPlease select the pet's gender.";
 
         }
-        gender = GenderF.isSelected() ? "Female" : "Male";
+        gender = GenderF.isSelected() ? "F" : "M";
         if (!Healthy.isSelected() && !UnHealthy.isSelected()) {
             errorMessage += "\nPlease select the pet's health condition.";
             JOptionPane.showMessageDialog(this, errorMessage, "Invalid input", JOptionPane.ERROR_MESSAGE);
 
             return;
         }
-        health = Healthy.isSelected() ? "Healthy" : "Unhealthy";
+        health = Healthy.isSelected() ? true : false;
 
         if (!Cat.isSelected() && !Dog.isSelected()) {
             errorMessage += "\nPlease select the pet's species";

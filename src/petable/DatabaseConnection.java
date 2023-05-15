@@ -15,11 +15,7 @@ public class DatabaseConnection {
     static Connection conn = null;
 
     public DatabaseConnection() {
-    }
-    
-
-    public static void main(String[] args) {
-
+        
         String url = "jdbc:mysql://localhost:3306/Petable"; // replace with your database URL
         String username = "root"; // replace with your username
         String password = "123Lam@456"; // replace with your password
@@ -40,15 +36,20 @@ public class DatabaseConnection {
             e.printStackTrace();
         } finally {
             // Step 4: Close the connection (if open)
-            if (conn != null) {
-                try {
-                    conn.close();
-                    System.out.println("Connection closed.");
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+//            if (conn != null) {
+//                try {
+//                    conn.close();
+//                    System.out.println("Connection closed.");
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         }
+    }
+    
+
+    public static void main(String[] args) {
+
     }
 
     public void addPet(Pet pet) {
@@ -62,6 +63,7 @@ public class DatabaseConnection {
     }
 
     private void addCat(Cat cat) {
+        
         try {
             Statement stmt = conn.createStatement();
             String sql = "INSERT INTO Pets (HealthStatus, Gender, Age, Name, Species, IsAdopted) "
@@ -73,8 +75,9 @@ public class DatabaseConnection {
         } catch (SQLException e) {
             System.out.println("Error adding cat to the database: " + e.getMessage());
         }
+    
     }
-
+    
     private void addDog(Dog dog) {
         try {
             Statement stmt = conn.createStatement();

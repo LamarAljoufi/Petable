@@ -9,7 +9,7 @@ public interface Pet {
 
     void createPet() throws Exception;
 
-    void updatePet(int petId, String name, int age, String gender, String healthStatus);
+    void updatePet(int petId, String name, int age, String gender, boolean healthStatus);
 
     void deletePet(int petId);
 

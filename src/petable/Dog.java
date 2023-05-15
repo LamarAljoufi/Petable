@@ -14,10 +14,10 @@ public class Dog extends javax.swing.JFrame implements Pet {
     private String name;
     private int age;
     private String gender;
-    private String healthStatus;
+    private boolean healthStatus;
     private boolean isAdopted;
     private String species;
-    DatabaseConnection DB;
+   DatabaseConnection DB = new DatabaseConnection();
 
     public String getName() {
         return name;
@@ -43,11 +43,11 @@ public class Dog extends javax.swing.JFrame implements Pet {
         this.gender = gender;
     }
 
-    public String getHealthStatus() {
+    public boolean getHealthStatus() {
         return healthStatus;
     }
 
-    public void setHealthStatus(String healthStatus) {
+    public void setHealthStatus(boolean healthStatus) {
         this.healthStatus = healthStatus;
     }
 
@@ -72,7 +72,7 @@ public class Dog extends javax.swing.JFrame implements Pet {
          DB.addPet(this);
     }
 
-    public void updatePet(int petId, String name, int age, String gender, String healthStatus) {
+    public void updatePet(int petId, String name, int age, String gender, boolean healthStatus) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -98,7 +98,7 @@ public class Dog extends javax.swing.JFrame implements Pet {
         initComponents();
     }
 
-    public Dog(String name, int age, String gender, String healthStatus, boolean isAdopted, String petType) throws Exception {
+    public Dog(String name, int age, String gender, boolean healthStatus, boolean isAdopted, String petType) throws Exception {
         if (!petType.toLowerCase().equals("dog")) {
             throw new Exception("Invalid pet type for dog");
         }
