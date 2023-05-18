@@ -23,8 +23,10 @@ public class GiveUp extends javax.swing.JFrame implements Service {
     private String gender;
     private boolean health;
     private String species;
+     private static DatabaseConnection DB;
 
-    public GiveUp() {
+    public GiveUp(DatabaseConnection DB) {
+        this.DB=DB;
         initComponents();
     }
 
@@ -248,16 +250,14 @@ public class GiveUp extends javax.swing.JFrame implements Service {
         
         if (species.equalsIgnoreCase("Cat")) {
             try {
-                Pet Cat = new Cat(petname, petage, gender, health,false, species);
-                Cat.createPet();
+                Cat Cat = new Cat(petname, petage, gender, health,false, species, DB);
             } catch (Exception ex) {
                 Logger.getLogger(GiveUp.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }else{
              try {
-                Pet Dog = new Dog(petname, petage, gender, health,false, species);
-                Dog.createPet();
+                Dog Dog = new Dog(petname, petage, gender, health,false, species, DB);
             } catch (Exception ex) {
                 Logger.getLogger(GiveUp.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -266,7 +266,7 @@ public class GiveUp extends javax.swing.JFrame implements Service {
 
         // If all fields are valid, do something with the data, e.g. call a method on a service object
         // service.submit(petname, petage, gender, health);
-        new User().setVisible(true);
+        new Invoice().setVisible(true);
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -309,7 +309,7 @@ public class GiveUp extends javax.swing.JFrame implements Service {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GiveUp().setVisible(true);
+                new GiveUp(DB).setVisible(true);
             }
         });
     }

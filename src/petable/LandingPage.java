@@ -29,7 +29,7 @@ public class LandingPage extends javax.swing.JFrame {
         int delay = 2000; // milliseconds
         Timer timer = new Timer(delay, e -> {
             // Code to switch to the next panel after delay
-            new Main().setVisible(true);
+            new User().setVisible(true);
 
         });
         timer.setRepeats(false); // Only run once

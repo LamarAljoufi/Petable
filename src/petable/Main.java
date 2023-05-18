@@ -14,7 +14,10 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    public Main() {
+    private static DatabaseConnection DB;
+    
+    public Main(DatabaseConnection DB) {
+        this.DB=DB;
         initComponents();
     }
 
@@ -76,13 +79,13 @@ public class Main extends javax.swing.JFrame {
 
     private void give_upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_give_upActionPerformed
         // TODO add your handling code here:
-        new GiveUp().setVisible(true);
+        new GiveUp(DB).setVisible(true);
     }//GEN-LAST:event_give_upActionPerformed
 
     private void AdoptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdoptActionPerformed
         // TODO add your handling code here:
 
-        Adopt adopt = new Adopt();
+        Adopt adopt = new Adopt(DB);
         adopt.setVisible(true);
     }//GEN-LAST:event_AdoptActionPerformed
 
@@ -117,7 +120,7 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new Main(DB).setVisible(true);
             }
         });
     }

@@ -5,6 +5,9 @@
  */
 package petable;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -12,15 +15,66 @@ import javax.swing.JPanel;
  *
  * @author DELL
  */
-public class Cat extends javax.swing.JFrame implements Pet {
+public class Cat extends javax.swing.JFrame {
 
+    private int ID;
     private String name;
     private int age;
     private String gender;
     private boolean healthStatus;
     private boolean isAdopted;
 
-    DatabaseConnection DB = new DatabaseConnection();
+    private static DatabaseConnection DB;
+
+    public Cat(DatabaseConnection DB) throws Exception {
+
+        this.DB = DB;
+        initComponents();
+
+        String input = DB.retCat();
+        jLabel2.setText(input);
+        String idPrefix = "Pet's ID: ";
+        int startIndex = input.indexOf(idPrefix) + idPrefix.length();
+        int endIndex = input.indexOf("<br>", startIndex);
+        this.ID = Integer.parseInt(input.substring(startIndex, endIndex));
+//        int startIndex = input.indexOf("ID: ") + 4; // Find the index after "ID: "
+//        int endIndex = input.indexOf("\n", startIndex); // Find the index of the newline character
+//        this.ID = Integer.parseInt(input.substring(startIndex, endIndex));
+
+        input = DB.retCat();
+        jLabel3.setText(input);
+        jLabel4.setText(DB.retCat());
+
+    }
+
+    public Cat(String name, int age, String gender, boolean healthStatus, boolean isAdopted, String species, DatabaseConnection DB) throws Exception {
+
+        if (!species.toLowerCase().equals("cat")) {
+            throw new Exception("Invalid pet type for cat");
+        }
+        this.DB = DB;
+        this.ID = (int) (Math.random() * 999);
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.healthStatus = healthStatus;
+        this.isAdopted = false;
+
+        DB.addCat(this);
+        initComponents();
+        jLabel2.setText(DB.retCat());
+        jLabel3.setText(DB.retCat());
+        jLabel4.setText(DB.retCat());
+
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public String getSpecies() {
         return species;
@@ -67,13 +121,9 @@ public class Cat extends javax.swing.JFrame implements Pet {
         return isAdopted;
     }
 
-    public void setIsAdopted(boolean isAdopted) {
+    public void setIsAdopted(boolean isAdopted) throws SQLException {
+        DB.updateIsadopted(this.ID);
         this.isAdopted = isAdopted;
-    }
-
-    public void createPet() throws Exception {
-        //implmentation for createPet (When DB is ready)
-        DB.addPet(this);
     }
 
     public void updatePet(int petId, String name, int age, String gender, boolean healthStatus) {
@@ -81,10 +131,6 @@ public class Cat extends javax.swing.JFrame implements Pet {
         this.age = age;
         this.gender = gender;
         this.healthStatus = healthStatus;
-    }
-
-    public void deletePet(int petId) {
-        // Implementation for delete pet(When DB is ready)
     }
 
     public void adoptPet(int petId) {
@@ -98,22 +144,6 @@ public class Cat extends javax.swing.JFrame implements Pet {
     /**
      * Creates new form Cat
      */
-    public Cat() {
-        initComponents();
-    }
-
-    public Cat(String name, int age, String gender, boolean healthStatus, boolean isAdopted, String species) throws Exception {
-        if (!species.toLowerCase().equals("cat")) {
-            throw new Exception("Invalid pet type for cat");
-        }
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.healthStatus = healthStatus;
-        this.isAdopted = false;
-        initComponents();
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,6 +157,9 @@ public class Cat extends javax.swing.JFrame implements Pet {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,7 +183,7 @@ public class Cat extends javax.swing.JFrame implements Pet {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 60, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 60, 30));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/choose botton2.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +191,19 @@ public class Cat extends javax.swing.JFrame implements Pet {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 700, 60, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 710, 60, 30));
+
+        jLabel4.setText("jLabel4");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 140, 100));
+
+        jLabel3.setText("jLabel3");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 140, 100));
+
+        jLabel2.setToolTipText("");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel2.setFocusCycleRoot(true);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 140, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/cat.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 840));
@@ -169,18 +214,35 @@ public class Cat extends javax.swing.JFrame implements Pet {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        new User().setVisible(true);
+
+        try {
+            // TODO add your handling code here:
+            this.setIsAdopted(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        new Invoice().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        new User().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            this.setIsAdopted(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        new Invoice().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        new User().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            this.setIsAdopted(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        new Invoice().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -213,7 +275,11 @@ public class Cat extends javax.swing.JFrame implements Pet {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cat().setVisible(true);
+                try {
+                    new Cat(DB).setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -223,6 +289,9 @@ public class Cat extends javax.swing.JFrame implements Pet {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

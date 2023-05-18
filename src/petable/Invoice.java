@@ -5,8 +5,7 @@
  */
 package petable;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 /**
  *
@@ -19,6 +18,14 @@ public class Invoice extends javax.swing.JFrame {
      */
     public Invoice() {
         initComponents();
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream("Output.txt"); BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream); PrintWriter writer = new PrintWriter(bufferedOutputStream)) {
+
+            writer.print("Hi");
+
+        } catch (IOException ex) {
+            System.out.println("error writting to the file");
+        }
     }
 
     /**
@@ -88,20 +95,7 @@ public class Invoice extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                PrintWriter writer = null;
-                try {
-                    writer = new PrintWriter("Output.txt");
 
-                    writer.print("Hi");
-
-                    new Invoice().setVisible(true);
-
-                } catch (IOException ex) {
-                    System.out.println("error writting to the file");
-                } finally {
-                    writer.flush();
-                    writer.close();
-                }
                 new Invoice().setVisible(true);
 
             }

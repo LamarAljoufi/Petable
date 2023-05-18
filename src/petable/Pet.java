@@ -11,9 +11,5 @@ public interface Pet {
 
     void updatePet(int petId, String name, int age, String gender, boolean healthStatus);
 
-    void deletePet(int petId);
-
-    void adoptPet(int petId);
-
-    String displayPetDetails(int petId);
+  
 }

@@ -5,6 +5,9 @@
  */
 package petable;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author DELL
@@ -15,7 +18,9 @@ public class Adopt extends javax.swing.JFrame implements Service {
     /**
      * Creates new form Adopt
      */
-    public Adopt() {
+     private static DatabaseConnection DB;
+    public Adopt(DatabaseConnection DB) {
+        this.DB=DB;
         initComponents();
     }
 
@@ -54,7 +59,7 @@ public class Adopt extends javax.swing.JFrame implements Service {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 90, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Adopt.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Adopt (1).png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 383, 848));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -72,20 +77,29 @@ public class Adopt extends javax.swing.JFrame implements Service {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        new Cat().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            
+            new Cat(DB).setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(Adopt.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        new Dog().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new Dog(DB).setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(Adopt.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -112,7 +126,7 @@ public class Adopt extends javax.swing.JFrame implements Service {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Adopt().setVisible(true);
+                new Adopt(DB).setVisible(true);
             }
         });
     }

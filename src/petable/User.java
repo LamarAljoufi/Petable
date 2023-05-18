@@ -19,9 +19,34 @@ public class User extends javax.swing.JFrame {
     private String name;
     private int age;
     private String phoneNo;
+    private DatabaseConnection DB = new DatabaseConnection();
 
     public User() {
         initComponents();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     /**
@@ -150,11 +175,11 @@ public class User extends javax.swing.JFrame {
             return;
         }
 
-        name = nameText;
-        age = Integer.parseInt(ageText);
-        phoneNo = phoneText;
-
-        new Invoice().setVisible(true);
+        this.setName(nameText); ;
+        this.setAge(Integer.parseInt(ageText));
+        this.setPhoneNo(phoneText);
+        DB.addUser(this);
+        new Main(DB).setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
