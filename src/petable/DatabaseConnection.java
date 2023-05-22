@@ -223,4 +223,56 @@ public class DatabaseConnection {
 
     }
 
+    public String readBasedOnKey(String receive) throws SQLException {
+
+        String result = null;
+        String sql1 = "Select * From User Where Phone = '" + receive + "';";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql1);
+        int Phone = 0;
+        String Uname = null;
+        while (rs.next()) {
+            Phone = rs.getInt("Phone");
+            Uname = rs.getString("Name");
+        }
+        result += "Thanks for using petable here is information details";
+
+        result += "--------------User information--------------\n"
+                + "User's Name: " + Uname + "\n"
+                + "User's Phone: " + Phone + "\n";
+
+        String sql2 = "Select * From Pets Where OwnerPhone = " + receive;
+        ResultSet rs2 = stmt.executeQuery(sql2);
+        int id = 0;
+        boolean hs = false;
+        String gender = null;
+        int age = 0;
+        String Pname = null;
+        String species = null;
+        while (rs2.next()) {
+            id = rs2.getInt("ID");
+            hs = rs2.getBoolean("HealthStatus");
+            gender = rs2.getString("Gender");
+            age = rs2.getInt("Age");
+            Pname = rs2.getString("Name");
+            species = rs2.getString("Species");
+        }
+
+        result += "--------------Pets information--------------";
+        result += "Pet's ID: " + id + "\n"
+                + "Pet name: " + Pname + "\n"
+                + "Pet's Age: " + age + "\n"
+                + "Pet's gender: " + gender + "\n"
+                + "HealthStatus: " + (hs ? "Healthy" : "UnHealthy") + "\n"
+                + "Species: " + species + "\n";
+
+        result += "----------------------------";
+
+        rs.close();
+        rs2.close();
+        stmt.close();
+        return result;
+
+    }
+
 }

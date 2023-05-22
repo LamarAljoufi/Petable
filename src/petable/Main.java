@@ -15,8 +15,10 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     private static DatabaseConnection DB;
+ 
     
-    public Main(DatabaseConnection DB) {
+    public Main(DatabaseConnection DB ) {
+       
         this.DB=DB;
         initComponents();
     }

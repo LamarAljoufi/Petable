@@ -5,6 +5,7 @@
  */
 package petable;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -216,7 +217,12 @@ public class Dog extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Dog.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new Invoice().setVisible(true);
+        try {
+            new Invoice().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Dog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -226,7 +232,13 @@ public class Dog extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Dog.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new Invoice().setVisible(true);
+        
+        try {
+            new Invoice().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Dog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -236,7 +248,13 @@ public class Dog extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Dog.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new Invoice().setVisible(true);
+       
+        try {
+            new Invoice().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Dog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

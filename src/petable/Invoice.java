@@ -6,6 +6,11 @@
 package petable;
 
 import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,12 +21,19 @@ public class Invoice extends javax.swing.JFrame {
     /**
      * Creates new form Invoice
      */
-    public Invoice() {
+    public Invoice() throws IOException {
         initComponents();
 
-        try (FileOutputStream fileOutputStream = new FileOutputStream("Output.txt"); BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream); PrintWriter writer = new PrintWriter(bufferedOutputStream)) {
+        Socket sock = SharedContext.getSocket();
 
-            writer.print("Hi");
+        try (PrintWriter writer = new PrintWriter("Output.txt"); 
+                ObjectInputStream inputStream = new ObjectInputStream(sock.getInputStream())) {
+
+            // Read the serialized object from the client
+            String line;
+            while ((line = inputStream.readUTF()) != null) {
+                writer.print(line);
+            }
 
         } catch (IOException ex) {
             System.out.println("error writting to the file");
@@ -96,7 +108,11 @@ public class Invoice extends javax.swing.JFrame {
 
             public void run() {
 
-                new Invoice().setVisible(true);
+                try {
+                    new Invoice().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Invoice.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
         });

@@ -5,6 +5,7 @@
  */
 package petable;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,7 @@ public class Cat extends javax.swing.JFrame {
     public Cat(DatabaseConnection DB) throws Exception {
 
         this.DB = DB;
+
         initComponents();
 
         String input = DB.retCat();
@@ -37,9 +39,6 @@ public class Cat extends javax.swing.JFrame {
         int startIndex = input.indexOf(idPrefix) + idPrefix.length();
         int endIndex = input.indexOf("<br>", startIndex);
         this.ID = Integer.parseInt(input.substring(startIndex, endIndex));
-//        int startIndex = input.indexOf("ID: ") + 4; // Find the index after "ID: "
-//        int endIndex = input.indexOf("\n", startIndex); // Find the index of the newline character
-//        this.ID = Integer.parseInt(input.substring(startIndex, endIndex));
 
         input = DB.retCat();
         jLabel3.setText(input);
@@ -222,7 +221,12 @@ public class Cat extends javax.swing.JFrame {
             Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        new Invoice().setVisible(true);
+        try {
+            new Invoice().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -232,7 +236,12 @@ public class Cat extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new Invoice().setVisible(true);
+
+        try {
+            new Invoice().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -242,7 +251,12 @@ public class Cat extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new Invoice().setVisible(true);
+
+        try {
+            new Invoice().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Cat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

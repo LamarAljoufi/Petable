@@ -5,6 +5,8 @@
  */
 package petable;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -264,9 +266,13 @@ public class GiveUp extends javax.swing.JFrame implements Service {
         }
         
 
-        // If all fields are valid, do something with the data, e.g. call a method on a service object
-        // service.submit(petname, petage, gender, health);
-        new Invoice().setVisible(true);
+      
+        try {
+            new Invoice().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(GiveUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
 
 
     }//GEN-LAST:event_jButton1ActionPerformed

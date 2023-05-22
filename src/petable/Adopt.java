@@ -18,8 +18,11 @@ public class Adopt extends javax.swing.JFrame implements Service {
     /**
      * Creates new form Adopt
      */
-     private static DatabaseConnection DB;
+    private static DatabaseConnection DB;
+   
+    
     public Adopt(DatabaseConnection DB) {
+      
         this.DB=DB;
         initComponents();
     }
@@ -82,6 +85,7 @@ public class Adopt extends javax.swing.JFrame implements Service {
             
             new Cat(DB).setVisible(true);
         } catch (Exception ex) {
+            
             Logger.getLogger(Adopt.class.getName()).log(Level.SEVERE, null, ex);
         }
         

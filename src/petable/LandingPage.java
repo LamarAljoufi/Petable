@@ -5,6 +5,10 @@
  */
 package petable;
 
+import java.io.IOException;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -25,6 +29,7 @@ public class LandingPage extends javax.swing.JFrame {
         this.pack();
         this.setVisible(true);
 
+//        Server server = new Server(8800);
         // Create a Timer instance with a delay of 2 seconds
         int delay = 2000; // milliseconds
         Timer timer = new Timer(delay, e -> {
@@ -113,6 +118,14 @@ public class LandingPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
+                try {
+                    Socket sock = new Socket("127.0.0.1", 8800);
+                    SharedContext.setSocket(sock);
+                } catch (IOException ex) {
+                    Logger.getLogger(LandingPage.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 new LandingPage().setVisible(true);
             }
         });
@@ -122,4 +135,5 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
 }
