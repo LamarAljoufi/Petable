@@ -1,0 +1,21 @@
+		Thanks for using petable here is information details
+
+		Invoce ID: #392			Date:2023-05-23
+
+
+		--------------User information--------------
+		User's Name: dodo
+		User's Phone: 7885655565
+
+
+		--------------Pets information--------------
+		Pet's ID: 450
+		Pet name: EE
+		Pet's Age: 4
+		Pet's gender: F
+		HealthStatus: Healthy
+		Species: Cat
+
+
+		--------------------------------------------
+		                 BY PETABLE                 

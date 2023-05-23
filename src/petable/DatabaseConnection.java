@@ -4,11 +4,8 @@
  */
 package petable;
 
-/**
- *
- * @author DELL
- */
 import java.sql.*;
+import java.time.LocalDate;
 
 public class DatabaseConnection {
 
@@ -18,46 +15,22 @@ public class DatabaseConnection {
 
     public DatabaseConnection() {
 
-        String url = "jdbc:mysql://localhost:3306/Petable"; // replace with your database URL
-        String username = "root"; // replace with your username
-        String password = "123Lam@456"; // replace with your password
+        String url = "jdbc:mysql://localhost:3306/Petable";
+        String username = "root";
+        String password = "123Lam@456";
 
         try {
-            // Step 1: Load the JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Step 2: Establish the connection
             conn = DriverManager.getConnection(url, username, password);
             System.out.println("Connection successful!");
 
-            // Step 3: Use the connection to execute SQL queries or other operations
-            // ...
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            // Step 4: Close the connection (if open)
-//            if (conn != null) {
-//                try {
-//                    conn.close();
-//                    System.out.println("Connection closed.");
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
-//            }
         }
     }
 
-//    public void addPet(Pet pet) {
-//        if (pet instanceof Cat) {
-//            addCat((Cat) pet);
-//        } else if (pet instanceof Dog) {
-//            addDog((Dog) pet);
-//        } else {
-//            System.out.println("Invalid pet type.");
-//        }
-//    }
     public void addCat(Cat cat) {
 
         try {
@@ -150,9 +123,7 @@ public class DatabaseConnection {
             }
             isAdopted = rs.getBoolean("IsAdopted");
             species = rs.getString("Species");
-
         }
-
         return null; // Return null if no more rows are available
     }
 
@@ -203,7 +174,6 @@ public class DatabaseConnection {
             species = rs.getString("Species");
 
         }
-
         return null; // Return null if no more rows are available
     }
 
@@ -212,36 +182,34 @@ public class DatabaseConnection {
         String sql = "UPDATE pets SET IsAdopted = ? WHERE ID = ?";
 
         try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-            // Set the parameter values
             preparedStatement.setBoolean(1, true);
             preparedStatement.setInt(2, ID);
-
-            // Execute the update statement
             int rowsAffected = preparedStatement.executeUpdate();
             System.out.println(rowsAffected + " row(s) updated");
         }
 
     }
 
-    public String readBasedOnKey(String receive) throws SQLException {
+    public String readBasedOnKey(String receive, int receive2) throws SQLException {
 
         String result = null;
         String sql1 = "Select * From User Where Phone = '" + receive + "';";
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(sql1);
-        int Phone = 0;
+        String Phone = null;
         String Uname = null;
         while (rs.next()) {
-            Phone = rs.getInt("Phone");
+            Phone = rs.getString("Phone");
             Uname = rs.getString("Name");
         }
-        result += "Thanks for using petable here is information details";
+        result = "\t\tThanks for using petable here is information details\n\n";
+        LocalDate currentDate = LocalDate.now();
+        result += "\t\tInvoce ID: #" + (int) (Math.random() * 999) + "\t\t\tDate:" + currentDate + "\n";
+        result += "\n\n\t\t--------------User information--------------\n"
+                + "\t\tUser's Name: " + Uname + "\n"
+                + "\t\tUser's Phone: " + receive + "\n";
 
-        result += "--------------User information--------------\n"
-                + "User's Name: " + Uname + "\n"
-                + "User's Phone: " + Phone + "\n";
-
-        String sql2 = "Select * From Pets Where OwnerPhone = " + receive;
+        String sql2 = "Select * From Pets Where ID = " + receive2;
         ResultSet rs2 = stmt.executeQuery(sql2);
         int id = 0;
         boolean hs = false;
@@ -258,21 +226,21 @@ public class DatabaseConnection {
             species = rs2.getString("Species");
         }
 
-        result += "--------------Pets information--------------";
-        result += "Pet's ID: " + id + "\n"
-                + "Pet name: " + Pname + "\n"
-                + "Pet's Age: " + age + "\n"
-                + "Pet's gender: " + gender + "\n"
-                + "HealthStatus: " + (hs ? "Healthy" : "UnHealthy") + "\n"
-                + "Species: " + species + "\n";
+        result += "\n\n\t\t--------------Pets information--------------\n";
+        result += "\t\tPet's ID: " + id + "\n"
+                + "\t\tPet name: " + Pname + "\n"
+                + "\t\tPet's Age: " + age + "\n"
+                + "\t\tPet's gender: " + gender + "\n"
+                + "\t\tHealthStatus: " + (hs ? "Healthy" : "UnHealthy") + "\n"
+                + "\t\tSpecies: " + species + "\n";
 
-        result += "----------------------------";
+        result += "\n\n\t\t--------------------------------------------\n";
+        result += "\t\t                 BY PETABLE                 ";
 
         rs.close();
         rs2.close();
         stmt.close();
         return result;
-
     }
 
 }

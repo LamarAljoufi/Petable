@@ -4,31 +4,34 @@
  */
 package petable;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
- *
- * @author DELL
- */
 public class SharedContext {
 
     private static ServerSocket serverSocket;
-
     private static Server server;
-
     private static Socket socket;
+    private static ObjectOutputStream outputStream;
 
-    public static void setServerSocket(ServerSocket socket) {
-        serverSocket = socket;
+    public static ObjectOutputStream getoutputStream() throws IOException {
+        if (outputStream == null) {
+            outputStream = new ObjectOutputStream(socket.getOutputStream());
+        }
+        return outputStream;
     }
 
-    public static Socket getSocket() {
+    public static Socket getSocket() throws IOException {
+        if (socket == null) {
+            socket = new Socket("127.0.0.1", 8800);
+        }
         return socket;
     }
 
-    public static void setSocket(Socket socket) {
-        SharedContext.socket = socket;
+    public static void setServerSocket(ServerSocket socket) {
+        serverSocket = socket;
     }
 
     public static ServerSocket getServerSocket() {
