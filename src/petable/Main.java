@@ -1,12 +1,8 @@
 package petable;
 
 public class Main extends javax.swing.JFrame {
-
-    private static DatabaseConnection DB;
-
-    public Main(DatabaseConnection DB) {
-
-        this.DB = DB;
+    
+    public Main() {
         initComponents();
     }
 
@@ -26,7 +22,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Adopt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Adopte button.png"))); // NOI18N
+        Adopt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/AdoptB1.png"))); // NOI18N
         Adopt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdoptActionPerformed(evt);
@@ -34,7 +30,7 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel1.add(Adopt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 120, 50));
 
-        give_up.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Give up button.png"))); // NOI18N
+        give_up.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/GiveUpB1.png"))); // NOI18N
         give_up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 give_upActionPerformed(evt);
@@ -42,7 +38,7 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel1.add(give_up, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 120, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Main.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Main.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -61,13 +57,13 @@ public class Main extends javax.swing.JFrame {
 
     private void give_upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_give_upActionPerformed
         // TODO add your handling code here:
-        new GiveUp(DB).setVisible(true);
+        new GiveUp().setVisible(true);
     }//GEN-LAST:event_give_upActionPerformed
 
     private void AdoptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdoptActionPerformed
         // TODO add your handling code here:
 
-        Adopt adopt = new Adopt(DB);
+        Adopt adopt = new Adopt();
         adopt.setVisible(true);
     }//GEN-LAST:event_AdoptActionPerformed
 
@@ -102,7 +98,7 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main(DB).setVisible(true);
+                new Main().setVisible(true);
             }
         });
     }

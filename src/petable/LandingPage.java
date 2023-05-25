@@ -37,7 +37,7 @@ public class LandingPage extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Landing.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Landing (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

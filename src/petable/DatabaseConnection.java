@@ -78,8 +78,7 @@ public class DatabaseConnection {
 
     }
 
-    public String retCat() throws Exception {
-
+    public String retPet(String sp) throws Exception {
         String sql;
         Statement stmt = conn.createStatement();
         ResultSet rs;
@@ -100,7 +99,7 @@ public class DatabaseConnection {
             String species = rs.getString("Species");
             // Process the results
 
-            if (isAdopted == false && species.equalsIgnoreCase("Cat")) {
+            if (isAdopted == false && species.equalsIgnoreCase(sp)) {
                 // Retrieve the data from the current row
                 int id = rs.getInt("ID");
                 boolean hs = rs.getBoolean("HealthStatus");
@@ -124,57 +123,7 @@ public class DatabaseConnection {
             isAdopted = rs.getBoolean("IsAdopted");
             species = rs.getString("Species");
         }
-        return null; // Return null if no more rows are available
-    }
-
-    public String retDog() throws Exception {
-
-        String sql;
-        Statement stmt = conn.createStatement();
-        ResultSet rs;
-
-        if (lastRetrievedRowId == -1) {
-            sql = "SELECT * FROM Pets";
-            rs = stmt.executeQuery(sql);
-        } else {
-            sql = "SELECT * FROM Pets WHERE ID > ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, lastRetrievedRowId);
-            rs = pstmt.executeQuery();
-        }
-        String result = null;
-        while (rs.next() && result == null) {
-
-            boolean isAdopted = rs.getBoolean("IsAdopted");
-            String species = rs.getString("Species");
-            // Process the results
-
-            if (isAdopted == false && species.equalsIgnoreCase("Dog")) {
-                // Retrieve the data from the current row
-                int id = rs.getInt("ID");
-                boolean hs = rs.getBoolean("HealthStatus");
-                String gender = rs.getString("Gender");
-                int age = rs.getInt("Age");
-                String name = rs.getString("Name");
-
-                lastRetrievedRowId = id; // Update the last retrieved row ID
-
-                result = "<html>Pet's ID: " + id + "<br>"
-                        + "Pet name: " + name + "<br>"
-                        + "Pet's Age: " + age + "<br>"
-                        + "Pet's gender: " + gender + "<br>"
-                        + "HealthStatus: " + (hs ? "Healthy" : "UnHealthy") + "</html>";
-
-                rs.close();
-                stmt.close();
-                return result;
-
-            }
-            isAdopted = rs.getBoolean("IsAdopted");
-            species = rs.getString("Species");
-
-        }
-        return null; // Return null if no more rows are available
+        return null;
     }
 
     public void updateIsadopted(int ID) throws SQLException {

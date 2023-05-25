@@ -12,10 +12,8 @@ public class GiveUp extends javax.swing.JFrame {
     private String gender;
     private boolean health;
     private String species;
-    private static DatabaseConnection DB;
 
-    public GiveUp(DatabaseConnection DB) {
-        this.DB = DB;
+    public GiveUp() {
         initComponents();
     }
 
@@ -114,13 +112,13 @@ public class GiveUp extends javax.swing.JFrame {
         });
         jPanel1.add(Dog, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/next button.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Next.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 640, 90, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 630, 90, 40));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -152,16 +150,14 @@ public class GiveUp extends javax.swing.JFrame {
         jLabel4.setText("Choose helth status");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/GiveUp.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/GiveUp.png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,9 +186,7 @@ public class GiveUp extends javax.swing.JFrame {
     }//GEN-LAST:event_HealthyActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
         String errorMessage = "";
-
         petname = PetName.getText();
         if (petname == null || petname.isEmpty()) {
             errorMessage += "Please enter the pet's name.";
@@ -226,13 +220,13 @@ public class GiveUp extends javax.swing.JFrame {
         species = Cat.isSelected() ? "Cat" : "Dog";
         if (species.equalsIgnoreCase("Cat")) {
             try {
-                Cat Cat = new Cat(petname, petage, gender, health, false, species, DB);
+                Cat Cat = new Cat(petname, petage, gender, health, false, species);
             } catch (Exception ex) {
                 Logger.getLogger(GiveUp.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             try {
-                Dog Dog = new Dog(petname, petage, gender, health, false, species, DB);
+                Dog Dog = new Dog(petname, petage, gender, health, false, species);
             } catch (Exception ex) {
                 Logger.getLogger(GiveUp.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -282,7 +276,7 @@ public class GiveUp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GiveUp(DB).setVisible(true);
+                new GiveUp().setVisible(true);
             }
         });
     }

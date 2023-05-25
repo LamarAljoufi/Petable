@@ -23,27 +23,26 @@ public class Server {
         Server server = SharedContext.getServer();
         ServerSocket serverSocket = new ServerSocket(PORT);
         SharedContext.setServerSocket(serverSocket);
-
         while (true) {
             Socket clientSocket = serverSocket.accept();
-
+            //----userThread----
             Thread userThread = new Thread(() -> {
                 try {
-                    inputStream = new ObjectInputStream(clientSocket.getInputStream());
+                    inputStream = SharedContext.setObjectInputStream(clientSocket);
                     receive = inputStream.readUTF();
                     System.out.println(receive);
                     Thread.sleep(3000);
                     receive2 = inputStream.readInt();
                     System.out.println(receive2);
+
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (InterruptedException ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            });
-            userThread.start();
-            userThread.join();
 
+            });
+            //----clientThread----
             Thread clientThread = new Thread(() -> {
 
                 try {
@@ -54,6 +53,9 @@ public class Server {
                     e.printStackTrace();
                 }
             });
+            //----------------
+            userThread.start();
+            userThread.join();
             clientThread.start();
         }
 

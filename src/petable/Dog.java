@@ -15,27 +15,27 @@ public class Dog extends javax.swing.JFrame {
     private boolean healthStatus;
     private boolean isAdopted;
     private String species;
-    private static DatabaseConnection DB;
+    private DatabaseConnection DB = SharedContext.getDB();
     private static String input1;
     private static String input2;
     private static String input3;
 
-    public Dog(DatabaseConnection DB) throws Exception {
-        this.DB = DB;
+    public Dog() throws Exception {
+        species = "Dog";
         initComponents();
-        input1 = DB.retDog();
+        input1 = DB.retPet(species);
         jLabel2.setText(input1);
-        input2 = DB.retDog();
+        input2 = DB.retPet(species);
         jLabel3.setText(input2);
-        input3 = DB.retDog();
+        input3 = DB.retPet(species);
         jLabel4.setText(input3);
     }
 
-    public Dog(String name, int age, String gender, boolean healthStatus, boolean isAdopted, String petType, DatabaseConnection DB) throws Exception {
+    public Dog(String name, int age, String gender, boolean healthStatus, boolean isAdopted, String petType) throws Exception {
         if (!petType.toLowerCase().equals("dog")) {
             throw new Exception("Invalid pet type for dog");
         }
-        this.DB = DB;
+
         this.ID = (int) (Math.random() * 999);
         this.name = name;
         this.age = age;
@@ -44,9 +44,6 @@ public class Dog extends javax.swing.JFrame {
         this.isAdopted = false;
         DB.addDog(this);
         initComponents();
-        jLabel2.setText(DB.retDog());
-        jLabel3.setText(DB.retDog());
-        jLabel4.setText(DB.retDog());
         PrintID();
 
     }
@@ -143,46 +140,46 @@ public class Dog extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/choose botton2.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 60, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 70, 30));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/choose botton2.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 60, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 70, 30));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/choose botton2.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 710, 60, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 680, 70, 30));
 
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(63, 34, 92));
         jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 140, 100));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 140, 100));
 
         jLabel3.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(63, 34, 92));
         jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 140, 100));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 140, 100));
 
         jLabel4.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(63, 34, 92));
         jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 140, 100));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 140, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Dog.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Dog1.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,7 +295,7 @@ public class Dog extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Dog(DB).setVisible(true);
+                    new Dog().setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(Dog.class.getName()).log(Level.SEVERE, null, ex);
                 }

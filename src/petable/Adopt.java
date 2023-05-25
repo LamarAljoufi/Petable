@@ -5,10 +5,7 @@ import java.util.logging.Logger;
 
 public class Adopt extends javax.swing.JFrame {
 
-    private static DatabaseConnection DB;
-
-    public Adopt(DatabaseConnection DB) {
-        this.DB = DB;
+    public Adopt() {
         initComponents();
     }
 
@@ -26,30 +23,32 @@ public class Adopt extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/cat button.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/CatsB.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 90, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 90, 50));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/dogs button.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/DogdB.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 90, 40));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 90, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/Adopt (1).png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 383, 848));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Adopt.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 848));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -61,7 +60,7 @@ public class Adopt extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            new Cat(DB).setVisible(true);
+            new Cat().setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(Adopt.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,7 +69,7 @@ public class Adopt extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            new Dog(DB).setVisible(true);
+            new Dog().setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(Adopt.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -106,7 +105,7 @@ public class Adopt extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Adopt(DB).setVisible(true);
+                new Adopt().setVisible(true);
             }
         });
     }

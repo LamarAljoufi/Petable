@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package petable;
 
 import java.io.IOException;
@@ -23,29 +18,28 @@ public class Cat extends javax.swing.JFrame {
     private String gender;
     private boolean healthStatus;
     private boolean isAdopted;
-    private static DatabaseConnection DB;
+    private DatabaseConnection DB = SharedContext.getDB();
     private static String input1;
     private static String input2;
     private static String input3;
 
-    public Cat(DatabaseConnection DB) throws Exception {
-        this.DB = DB;
+    public Cat() throws Exception {
+        species = "Cat";
         initComponents();
-        input1 = DB.retCat();
+        input1 = DB.retPet(species);
         jLabel2.setText(input1);
-        input2 = DB.retCat();
+        input2 = DB.retPet(species);
         jLabel3.setText(input2);
-        input3 = DB.retCat();
+        input3 = DB.retPet(species);
         jLabel4.setText(input3);
 
     }
 
-    public Cat(String name, int age, String gender, boolean healthStatus, boolean isAdopted, String species, DatabaseConnection DB) throws Exception {
-
+    public Cat(String name, int age, String gender, boolean healthStatus, boolean isAdopted, String species) throws Exception {
         if (!species.toLowerCase().equals("cat")) {
             throw new Exception("Invalid pet type for cat");
         }
-        this.DB = DB;
+
         this.ID = (int) (Math.random() * 999);
         this.name = name;
         this.age = age;
@@ -151,49 +145,49 @@ public class Cat extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(60, 63, 65));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/choose botton2.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 60, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 70, 30));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/choose botton2.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 710, 60, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 680, 70, 30));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/choose botton2.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 60, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 70, 30));
 
         jLabel4.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(63, 34, 92));
         jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 140, 100));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 140, 100));
 
         jLabel3.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(63, 34, 92));
         jLabel3.setText("jLabel3");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 140, 100));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 140, 100));
 
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(63, 34, 92));
         jLabel2.setToolTipText("");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel2.setFocusCycleRoot(true);
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 140, 100));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 140, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/cat.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/cat1.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 840));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -249,11 +243,11 @@ public class Cat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void PrintID() {
-
         try {
             ObjectOutputStream outputStream = SharedContext.getoutputStream();
             outputStream.writeInt(ID);
             outputStream.flush();
+            System.out.println(ID);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -305,7 +299,7 @@ public class Cat extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Cat(DB).setVisible(true);
+                    new Cat().setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(Cat.class
                             .getName()).log(Level.SEVERE, null, ex);

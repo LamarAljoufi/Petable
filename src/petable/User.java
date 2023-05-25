@@ -9,7 +9,7 @@ public class User extends javax.swing.JFrame {
     private String name;
     private int age;
     private String phoneNo;
-    private DatabaseConnection DB = new DatabaseConnection();
+    private DatabaseConnection DB = SharedContext.getDB();
 
     public User() {
         initComponents();
@@ -94,20 +94,20 @@ public class User extends javax.swing.JFrame {
         Phone.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(Phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 87, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/next button.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Next.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 90, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 90, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Enter your information");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 230, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/User.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/User.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,8 +129,6 @@ public class User extends javax.swing.JFrame {
     }//GEN-LAST:event_NameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        // TODO add your handling code here:
         String errorMessage = "";
         String nameText = Name.getText().trim();
         String ageText = Age.getText().trim();
@@ -169,7 +167,7 @@ public class User extends javax.swing.JFrame {
         this.setAge(Integer.parseInt(ageText));
         this.setPhoneNo(phoneText);
         DB.addUser(this);
-        new Main(DB).setVisible(true);
+        new Main().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
