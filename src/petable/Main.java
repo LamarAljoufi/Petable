@@ -25,7 +25,9 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Adopt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/AdoptB1.png"))); // NOI18N
+        Adopt.setBackground(new java.awt.Color(255, 255, 255));
+        Adopt.setForeground(new java.awt.Color(255, 255, 255));
+        Adopt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/AdoptB.png"))); // NOI18N
         Adopt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Adopt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -34,7 +36,7 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel1.add(Adopt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 120, 50));
 
-        give_up.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/GiveUpB1.png"))); // NOI18N
+        give_up.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/GiveUpB.png"))); // NOI18N
         give_up.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         give_up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,7 +47,7 @@ public class Main extends javax.swing.JFrame {
 
         profile.setBackground(new java.awt.Color(255, 255, 255));
         profile.setForeground(new java.awt.Color(255, 255, 255));
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Profile2.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/profile1.png"))); // NOI18N
         profile.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         profile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +58,7 @@ public class Main extends javax.swing.JFrame {
 
         giveUP.setBackground(new java.awt.Color(255, 255, 255));
         giveUP.setForeground(new java.awt.Color(255, 255, 255));
-        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Give up2.png"))); // NOI18N
+        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/giveup1.png"))); // NOI18N
         giveUP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         giveUP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +69,7 @@ public class Main extends javax.swing.JFrame {
 
         home.setBackground(new java.awt.Color(255, 255, 255));
         home.setForeground(new java.awt.Color(255, 255, 255));
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Home2.png"))); // NOI18N
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/home2.png"))); // NOI18N
         home.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +78,7 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 780, 60, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Main.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Main (1).png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

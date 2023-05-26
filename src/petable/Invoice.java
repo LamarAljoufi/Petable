@@ -6,8 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Invoice extends javax.swing.JFrame {
-
-    private DatabaseConnection DB = new DatabaseConnection();
+  private DatabaseConnection DB = new DatabaseConnection();
 
     public Invoice() throws IOException {
         initComponents();
@@ -32,7 +31,7 @@ public class Invoice extends javax.swing.JFrame {
 
         giveUP.setBackground(new java.awt.Color(255, 255, 255));
         giveUP.setForeground(new java.awt.Color(255, 255, 255));
-        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Give up2.png"))); // NOI18N
+        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/giveup1.png"))); // NOI18N
         giveUP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         giveUP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,7 +42,7 @@ public class Invoice extends javax.swing.JFrame {
 
         home.setBackground(new java.awt.Color(255, 255, 255));
         home.setForeground(new java.awt.Color(255, 255, 255));
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Home2.png"))); // NOI18N
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Home1.png"))); // NOI18N
         home.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,7 +53,7 @@ public class Invoice extends javax.swing.JFrame {
 
         profile.setBackground(new java.awt.Color(255, 255, 255));
         profile.setForeground(new java.awt.Color(255, 255, 255));
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Profile2.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/profile1.png"))); // NOI18N
         profile.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         profile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,11 +65,10 @@ public class Invoice extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(63, 34, 92));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel2");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 320, 440));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Invoice.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Invoice.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

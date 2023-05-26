@@ -143,36 +143,36 @@ public class Dog extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 844));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/ChooseB.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 70, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 70, 30));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/ChooseB.png"))); // NOI18N
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 70, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 70, 30));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/chooseB.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/ChooseB.png"))); // NOI18N
         jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 680, 70, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 690, 70, 30));
 
         profile.setBackground(new java.awt.Color(255, 255, 255));
         profile.setForeground(new java.awt.Color(255, 255, 255));
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Profile2.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/profile1.png"))); // NOI18N
         profile.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         profile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +183,7 @@ public class Dog extends javax.swing.JFrame {
 
         home.setBackground(new java.awt.Color(255, 255, 255));
         home.setForeground(new java.awt.Color(255, 255, 255));
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Home2.png"))); // NOI18N
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Home1.png"))); // NOI18N
         home.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +194,7 @@ public class Dog extends javax.swing.JFrame {
 
         giveUP.setBackground(new java.awt.Color(255, 255, 255));
         giveUP.setForeground(new java.awt.Color(255, 255, 255));
-        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Give up2.png"))); // NOI18N
+        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/giveup1.png"))); // NOI18N
         giveUP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         giveUP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,20 +205,17 @@ public class Dog extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(63, 34, 92));
-        jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 140, 100));
 
         jLabel3.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(63, 34, 92));
-        jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 140, 100));
 
         jLabel4.setFont(new java.awt.Font("Meiryo", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(63, 34, 92));
-        jLabel4.setText("jLabel4");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 140, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Dog1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Dog.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 844));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,7 +224,7 @@ public class Dog extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -40,13 +40,13 @@ public class Profile extends javax.swing.JFrame {
 
         profile.setBackground(new java.awt.Color(255, 255, 255));
         profile.setForeground(new java.awt.Color(255, 255, 255));
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Profile2.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/profile2.png"))); // NOI18N
         profile.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 780, 60, 50));
 
         home.setBackground(new java.awt.Color(255, 255, 255));
         home.setForeground(new java.awt.Color(255, 255, 255));
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Home2.png"))); // NOI18N
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Home1.png"))); // NOI18N
         home.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +57,7 @@ public class Profile extends javax.swing.JFrame {
 
         giveUP.setBackground(new java.awt.Color(255, 255, 255));
         giveUP.setForeground(new java.awt.Color(255, 255, 255));
-        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Give up2.png"))); // NOI18N
+        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/giveup1.png"))); // NOI18N
         giveUP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         giveUP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +66,7 @@ public class Profile extends javax.swing.JFrame {
         });
         jPanel1.add(giveUP, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 780, 60, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Profile.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Profile.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 399, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
