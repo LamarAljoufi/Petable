@@ -1,20 +1,20 @@
 		Thanks for using petable here is information details
 
-		Invoce ID: #876			Date:2023-05-25
+		Invoce ID: #759			Date:2023-05-26
 
 
 		--------------User information--------------
-		User's Name: derfgth
-		User's Phone: 5855485455
+		User's Name: Laaa
+		User's Phone: 4444333333
 
 
 		--------------Pets information--------------
-		Pet's ID: 288
-		Pet name: bb
-		Pet's Age: 4
-		Pet's gender: F
+		Pet's ID: 0
+		Pet name: null
+		Pet's Age: 0
+		Pet's gender: null
 		HealthStatus: UnHealthy
-		Species: Cat
+		Species: null
 
 
 		--------------------------------------------

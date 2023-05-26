@@ -52,6 +52,9 @@ public class User extends javax.swing.JFrame {
         Age = new javax.swing.JTextField();
         Phone = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        home = new javax.swing.JButton();
+        giveUP = new javax.swing.JButton();
+        profile = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -95,12 +98,46 @@ public class User extends javax.swing.JFrame {
         jPanel1.add(Phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 87, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Next.png"))); // NOI18N
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 90, 50));
+
+        home.setBackground(new java.awt.Color(255, 255, 255));
+        home.setForeground(new java.awt.Color(255, 255, 255));
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Home2.png"))); // NOI18N
+        home.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 780, 60, 50));
+
+        giveUP.setBackground(new java.awt.Color(255, 255, 255));
+        giveUP.setForeground(new java.awt.Color(255, 255, 255));
+        giveUP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Give up2.png"))); // NOI18N
+        giveUP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        giveUP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                giveUPActionPerformed(evt);
+            }
+        });
+        jPanel1.add(giveUP, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 780, 60, 50));
+
+        profile.setBackground(new java.awt.Color(255, 255, 255));
+        profile.setForeground(new java.awt.Color(255, 255, 255));
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/petable/photos/Profile2.png"))); // NOI18N
+        profile.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        profile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileActionPerformed(evt);
+            }
+        });
+        jPanel1.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 780, 60, 50));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -174,6 +211,18 @@ public class User extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AgeActionPerformed
 
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+         new Main().setVisible(true);
+    }//GEN-LAST:event_homeActionPerformed
+
+    private void giveUPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveUPActionPerformed
+        new GiveUp().setVisible(true);
+    }//GEN-LAST:event_giveUPActionPerformed
+
+    private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
+         new Profile().setVisible(true);
+    }//GEN-LAST:event_profileActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +270,8 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JTextField Age;
     private javax.swing.JTextField Name;
     private javax.swing.JTextField Phone;
+    private javax.swing.JButton giveUP;
+    private javax.swing.JButton home;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -228,5 +279,6 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton profile;
     // End of variables declaration//GEN-END:variables
 }
